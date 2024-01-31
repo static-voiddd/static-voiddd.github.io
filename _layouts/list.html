@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% case page.type %}
+  {% when 'home' %}
+    <div class="site-header" style="background-image: url({{ site.cover | absolute_url }})">
+      <div class="ui huge header">{{ site.title }}</div>
+    </div>
+    {% for page in site.posts limit:10 %}
+      <div class="spacer">
+        <div class="preview">
+          {% include preview.html page=page %}
+        </div>
+      </div>
+    {% endfor %}
+  {% when 'tags' %}
+    {% assign tag_name = page.name %}
+    <div class="site-header" style="background-image: url({{ site.cover | absolute_url }})">
+      <div class="ui huge header">{{ tag_name }}</div>
+    </div>
+    {% for page in site.posts %}
+      {% if page.tags contains tag_name %}
+        <div class="spacer">
+          <div class="preview">
+            {% include preview.html page=page %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% when 'years' %}
+    {% capture year_name %}{{ page.name }}{% endcapture %}
+    <div class="site-header" style="background-image: url({{ site.cover | absolute_url }})">
+      <div class="ui huge header">{{ year_name }}</div>
+    </div>
+    {% for page in site.posts %}
+      {% capture page_year %}{{ page.date | date: "%Y" }}{% endcapture %}
+      {% if page_year == year_name %}
+        <div class="spacer">
+          <div class="preview">
+            {% include preview.html page=page %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <div class="site-header" style="background-image: url({{ site.url }}/{{ site.cover }})">
+      <div class="ui huge header">{{ 'results' }}</div>
+    </div>
+    {% for page in site.posts limit:20 %}
+      <div class="spacer">
+        <div class="preview">
+          {% include preview.html page=page %}
+        </div>
+      </div>
+    {% endfor %}
+{% endcase %}

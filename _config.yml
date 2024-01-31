@@ -1,0 +1,105 @@
+#
+# Editing this file can easily break things. Be prepared.
+#
+
+# personal
+
+author: Static Voiddd
+bio: "bru no bio"
+description: "Prep to crack interviews"
+email: voidddstatic@gmail.com
+integrations: # Values here will be instered as USERNAME
+  disqus: haseebq
+  github: static-voiddd
+  gcse: # https://cse.google.com/
+location: NY
+name: Static Voiddd
+
+# site
+
+baseurl: ""
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+  tags:
+    output: true
+    permalink: /:path/
+  years:
+    output: true
+    permalink: /:path/
+cover: images/timers.jpg
+future: true
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: haseeb-profile-pink.jpg
+      layout: post
+  -
+    scope:
+      path: _pages
+      type: pages
+    values:
+      image: placeholder.jpg
+      layout: post
+  -
+    scope:
+      path: _posts
+      type: posts
+    values:
+      featured: false
+      image: placeholder.jpg
+      layout: post
+  -
+    scope:
+      path: _tags
+      type: tags
+    values:
+      layout: list
+      type: tags
+  -
+    scope:
+      path: _years
+      type: years
+    values:
+      layout: list
+      type: years
+domain: haseebq.com
+encoding: utf-8
+excerpt_separator: "\n\n"
+highlighter: rouge
+kramdown:
+  input: GFM
+lang: en
+locale: en
+markdown: kramdown
+markdown_ext: md
+permalink: /:title/
+placeholder: images/placeholder.jpg
+profile: images/haseeb-profile-pink.jpg
+timezone: UTC #America/Los_Angeles
+title: Static Voiddd
+title_separator: "-"
+url: ""
+
+# build
+
+exclude:
+  - .editorconfig
+  - .gitignore
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+plugins:
+  - jekyll-avatar
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-sitemap
+  - jemoji

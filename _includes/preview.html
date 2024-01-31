@@ -1,0 +1,40 @@
+<div class="ui medium header">
+  <a class="big-enough" href="{{ include.page.url }}">
+
+    {% if page.tags contains 'leetcode' %}
+    LC {{include.page.number}} {{ include.page.title }}
+
+    {% else %}
+    {{include.page.title}}
+    {% endif %}
+
+    {% if page.tags contains 'medium' %}
+    [MEDIUM]
+    {% endif %}
+    {% if page.tags contains 'easy' %}
+    [EASY]
+    {% endif %}
+    {% if page.tags contains 'hard' %}
+    [HARD]
+    {% endif %}
+  </a>
+</div>
+<div class="ui divider"></div>
+<div class="flexbox">
+  <div class="narrow item">
+    <a class="ui fluid image" href="{{ include.page.url }}">
+      <img
+        src="{{ site.url }}/images/{% if include.page.image %}{{ include.page.image }}{% else %}placeholder.jpg{% endif %}"></a>
+  </div>
+  <div class="wide item">
+    <p>{{ include.page.content | markdownify | strip_html | truncatewords: 70 }}<br>
+      <a class="no-break" href="{{ include.page.url }}">read more <i class="ui caret right icon"></i></a>
+    </p>
+  </div>
+</div>
+<div class="tertiary tight middle flexbox">
+  <div class="item">
+    {% include tags.html tags=include.page.tags %}
+  </div>
+  <div class="frozen item">{{ include.page.date | date: "%b %Y" }}</div>
+</div>

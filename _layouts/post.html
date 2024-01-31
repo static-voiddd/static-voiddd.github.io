@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+<div class="spacer">
+
+  <div class="ui divider"></div> <br/> <br/>
+  <div class="secondary left flexbox">
+    <div class="item">
+      {% include tags.html tags=page.tags %}
+    </div>
+    <div class="frozen item">
+      {{ page.date | date: "%B %d %Y" }}
+    </div>
+  </div>
+
+  <div class="primary">
+    <div class="ui huge header">
+      {% if page.tags contains 'leetcode' %}
+      LC {{page.number}} {{ page.title }}
+
+      {% else %}
+      {{page.title}}
+      {% endif %}
+    </div>
+    {{ content }}
+    <div class="signature">Static Voiddd</div>
+  </div>
+
+  <div class="ui divider"></div>
+
+  <div class="tertiary">
+    <div class="ui fluid basic button disqus_trigger">
+      <i class="ui comments outline icon"></i>
+      Load
+      <span class="disqus-comment-count" data-disqus-url="{{ page.url | absolute_url }}"></span>
+      comments&nbsp;
+    </div>
+    <div id="disqus_thread"></div>
+    <script>
+      $(document).ready(function () {
+        $('.disqus_trigger').on('click', function () {
+          var disqus_config = function () {
+            this.page.url = '{{ page.url | absolute_url }}';
+            this.page.identifier = '{{ page.id }}';
+            this.page.title = '{{ page.title | escape }}';
+          };
+          (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://{{ site.integrations.disqus }}.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+          $(this).fadeOut();
+        });
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a>
+    </noscript>
+  </div>
+
+</div>
+
+{% if page.next or page.previous %}
+<div class="ui divider"></div>
+{% endif %}
+
+{% if page.next %}
+<div class="spacer">
+  <div class="preview">
+    {% include preview.html page=page.next %}
+    <div class="hint">next</div>
+  </div>
+</div>
+{% endif %}
+
+{% if page.previous %}
+<div class="spacer">
+  <div class="preview">
+    {% include preview.html page=page.previous %}
+    <div class="hint">prev</div>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,27 @@
+<!-- START site-menu -->
+<div class="secondary center stretch flexbox">
+  <div class="padded item">
+    <div class="ui small header">Main</div>
+    <div class="menulist">
+      <a class="item" href="{{ site.url }}/">/home</a>
+      {% for page in site.pages %}
+        <a class="item" href="{{ page.url }}">/{{ page.title | downcase }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="divider padded item">
+    <div class="ui small header">Topics</div>
+    <div class="menulist">
+      {% for tag in site.tags %}
+        <a class="item" href="{{ tag.url }}">/{{ tag.name | downcase }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="divider padded item">
+    <div class="ui small header">Follow</div>
+    <div class="left tight greyed flexbox">
+      <a class="icon item" title="See my code!" href="https://github.com/{{ site.integrations.github }}"><i class="ui github icon"></i></a>
+    </div>
+  </div>
+</div>
+<!-- END site-menu -->

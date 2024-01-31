@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <!-- site settings -->
+    <meta charset="{{ site.encoding | default: "utf-8" }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|PT+Sans:400,700|Droid+Sans+Mono">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/haseebq.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/highlighting.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="{{ site.url }}/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ site.url }}/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ site.url }}/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ site.url }}/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ site.url }}/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="{{ site.url }}/assets/favicons/favicon-196x196.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.url }}/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.url }}/assets/favicons/favicon-16x16.png">
+    {% feed_meta %}
+
+    <!-- page settings -->
+    <title>{{ page.title | default: "home" }} - {{ site.title }}</title>
+    <meta name="author" content="{{ site.author }}">
+    <meta property="article:author" content="https://www.facebook.com/{{ site.integrations.facebook }}">
+    <link rel="canonical" href="{{ page.url | absolute_url | default: site.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="{{ page.content | default: site.description | markdownify | strip_html | truncate: 200 }}">
+    <meta property="og:description" content="{{ page.content | default: site.description | markdownify | strip_html | truncate: 200 }}">
+    <meta name="twitter:description" content="{{ page.content | default: site.description | markdownify | strip_html | truncate: 200 }}">
+    <meta property="og:image" content="{{ page.image | prepend: 'https://haseebq.com/images/' }}">
+    <meta name="twitter:image" content="{{ page.image | prepend: 'https://haseebq.com/images/' }}">
+    <meta property="og:locale" content="{{ site.locale }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta name="twitter:site" content="@{{ site.integrations.twitter }}">
+    <meta property="article:tag" content="{{ page.tags | join: ', ' }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url | default: site.url }}">
+    <meta name="twitter:url" content="{{ page.url | absolute_url | default: site.url }}">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Website",
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.profile | absolute_url }}",
+      "width": 160,
+      "height": 160
+    }
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.image | prepend: 'https://haseebq.com/images/' }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "description": "{{ page.content | default: site.description | markdownify | strip_html | truncate: 200 }}"
+}
+    </script>
+  </head>
+  <body>
+    <div id="site-menu" class="ui top sidebar">
+      {% include navigation.html %}
+    </div>
+    <a class="site-menu trigger"><i class="ui content icon"></i></a>
+    <div class="pusher">
+      {{ content }}
+      <div class="ui divider"></div>
+      <div class="secondary spacer">
+        <div class="ui tight small header">Years</div>
+        <div class="years menulist">
+          <a class="item" href="{{ site.url }}/2024">/2024</a>
+        </div>
+        <div class="ui divider"></div>
+        {% include navigation.html %}
+      </div>
+      <div class="dead-timer" style="background-image: url({{ site.url }}/images/dead-timer.jpg);"></div>
+    </div>
+    <script src="{{ site.url }}/assets/semantic/semantic.min.js"></script>
+    <script src="{{ site.url }}/assets/js/haseebq.js"></script>
+    <script id="dsq-count-scr" src="//{{ site.integrations.disqus }}.disqus.com/count.js" async></script>
+  </body>
+</html>
