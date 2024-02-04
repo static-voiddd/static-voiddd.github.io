@@ -1,9 +1,8 @@
 ---
-title: "Valid Number"
+title: "65. Valid Number"
 tags: [leetcode, hard]
 image: leetcode.png
 featured: "true"
-number: 65
 ---
 
 ### | [Valid Number](https://leetcode.com/problems/valid-number/)  | :red_circle: 

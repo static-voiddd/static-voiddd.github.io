@@ -1,0 +1,52 @@
+---
+title: "958. Check Completeness of a Binary Tree"
+tags: [leetcode, medium]
+image: leetcode.png
+featured: "true"
+---
+
+### | [Complete Binary Tree](https://leetcode.com/problems/check-completeness-of-a-binary-tree/)  | :orange_book:
+
+Given the root of a binary tree, determine if it is a complete binary tree.
+
+Complete Tree             | Not Complete Tree |
+------------------|---------
+![complete](../images/complete-tree.png)  |  ![incomplete](../images/incomplete-tree.png)
+
+###  Notes  
+
+> If you ever encounter a NULL node, you must not encounter a non NULL node after that in a Level Order Traversal, this is the definition of a complete Binary Tree.
+   
+1. Traverse by level using BFS 
+2. A flag to track if u have encountered a null so far
+3. If we encounter a non null after this flag is true, its not a complete tree
+
+At the end, return seenDigit. This is one reason why we have to reset seenDigit after seeing an exponent - otherwise an input like "21e" would be incorrectly judged as valid.
+
+**Time Complexity - O(n) since we scanned only once through whole string |** 
+**Space Complexity - O(1)**
+
+```java
+class Solution {
+    public boolean isCompleteTree(TreeNode root) {
+        boolean nullNodeFound = false;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            TreeNode temp = q.poll();
+
+            if (temp == null)
+                nullNodeFound = true;
+            else {
+                if (nullNodeFound)
+                    return false;
+                q.offer(temp.left);
+                q.offer(temp.right);
+            }
+        }
+        return true;
+    }
+}
+
+```

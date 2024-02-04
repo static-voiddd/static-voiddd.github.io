@@ -1,9 +1,8 @@
 ---
-title: "Simplify Path"
+title: "71. Simplify Path"
 tags: [leetcode, medium]
 image: leetcode.png
 featured: "true"
-number: 71
 ---
 
 ### | [Simplify Path](https://leetcode.com/problems/simplify-path/)  | :orange_book:  

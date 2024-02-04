@@ -1,9 +1,8 @@
 ---
-title: "Custom Sort String"
+title: "791. Custom Sort String"
 tags: [leetcode, medium]
 image: leetcode.png
 featured: "true"
-number: 791
 ---
 
 ### | [Custom Sort String](https://leetcode.com/problems/custom-sort-string/)  | :orange_book: 

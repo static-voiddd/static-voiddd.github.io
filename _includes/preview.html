@@ -1,12 +1,7 @@
 <div class="ui medium header">
   <a class="big-enough" href="{{ include.page.url }}">
 
-    {% if page.tags contains 'leetcode' %}
-    LC {{include.page.number}} {{ include.page.title }}
-
-    {% else %}
     {{include.page.title}}
-    {% endif %}
 
     {% if page.tags contains 'medium' %}
     [MEDIUM]
