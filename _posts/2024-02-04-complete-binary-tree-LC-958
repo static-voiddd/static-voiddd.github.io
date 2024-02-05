@@ -12,7 +12,7 @@ Given the root of a binary tree, determine if it's a complete binary tree.
 
 Complete Tree             | Not Complete Tree |
 --------------------------|-------------------|
-<img src="/images/complete-tree.png"> | <img src="/images/incomplete-tree.png"> | 
+<img src="../images/complete-tree.png"> | <img src="../images/incomplete-tree.png"> | 
 
 ###  Notes  
 
