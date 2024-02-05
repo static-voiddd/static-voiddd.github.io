@@ -8,10 +8,11 @@ featured: "true"
 ### | [Complete Binary Tree](https://leetcode.com/problems/check-completeness-of-a-binary-tree/)  | :orange_book:
 
 Given the root of a binary tree, determine if it's a complete binary tree.
+(Complete if u go left to right and its filled)
 
 Complete Tree             | Not Complete Tree |
 --------------------------|-------------------|
-(../images/complete-tree.png)  |  (../images/incomplete-tree.png)
+<img src="/images/complete-tree.png"> | <img src="/images/incomplete-tree.png"> | 
 
 ###  Notes  
 
