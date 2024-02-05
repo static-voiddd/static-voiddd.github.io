@@ -10,9 +10,9 @@ featured: "true"
 Given the root of a binary tree, determine if it's a complete binary tree.
 (Complete if u go left to right and its filled)
 
-<!-- Complete Tree             | Not Complete Tree |
+Complete Tree             | Not Complete Tree |
 --------------------------|-------------------|
-<img src="../images/complete-tree.png"> | <img src="../images/incomplete-tree.png"> |  -->
+<img src="/images/complete-tree.png"> | <img src="/images/incomplete-tree.png"> | 
 
 ###  Notes  
 
